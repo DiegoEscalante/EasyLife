@@ -58,7 +58,7 @@ public class MedicamentoRepository extends Repository<Medicamento> {
 
     @Override
     public String getDataLine(Medicamento medicamento){
-        return medicamento.getId() + this.delimiter + medicamento.getNombre() + this.delimiter + medicamento.getDosis() + this.delimiter + medicamento.getCantidadRestante() + this.delimiter + medicamento.getPeriodo() + this.delimiter + medicamento.getFechaCaducidad() + this.delimiter + medicamento.getLote();
+        return medicamento.getId() + this.delimiter + medicamento.getNombre() + this.delimiter + medicamento.getDosis() + this.delimiter + medicamento.getCantidadRestante() + this.delimiter + medicamento.getPeriodo() + this.delimiter + medicamento.getFechaCaducidad().getId() + this.delimiter + medicamento.getLote();
     }
 
     public Medicamento findEntityById(int id){

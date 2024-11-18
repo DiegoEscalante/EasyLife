@@ -1,16 +1,16 @@
-import java.util.List;
+import java.util.ArrayList;
 public class PerfilMedico {
     private int id;
-    private List<String> discapacidades;
-    private List<String> vacunas;
-    private List<String> enfermedades;
-    private List<Medicamento> medicamentos;
-    private List<String> alergias;
-    private List<String> restricciones;
+    private ArrayList<String> discapacidades;
+    private ArrayList<String> vacunas;
+    private ArrayList<String> enfermedades;
+    private ArrayList<Medicamento> medicamentos;
+    private ArrayList<String> alergias;
+    private ArrayList<String> restricciones;
     private SeguroMedico seguro;
 
-    public PerfilMedico(int id, List<String> discapacidades, List<String> vacunas, List<String> enfermedades,
-                        List<Medicamento> medicamentos, List<String> alergias, List<String> restricciones, SeguroMedico seguro) {
+    public PerfilMedico(int id, ArrayList<String> discapacidades, ArrayList<String> vacunas, ArrayList<String> enfermedades,
+                        ArrayList<Medicamento> medicamentos, ArrayList<String> alergias, ArrayList<String> restricciones, SeguroMedico seguro) {
         this.id = id;
         this.discapacidades = discapacidades;
         this.vacunas = vacunas;
@@ -29,43 +29,43 @@ public class PerfilMedico {
         this.id = id;
     }
 
-    public List<String> getDiscapacidades() {
+    public ArrayList<String> getDiscapacidades() {
         return discapacidades;
     }
 
-    public void setDiscapacidades(List<String> discapacidades) {
+    public void setDiscapacidades(ArrayList<String> discapacidades) {
         this.discapacidades = discapacidades;
     }
 
-    public List<String> getVacunas() {
+    public ArrayList<String> getVacunas() {
         return vacunas;
     }
 
-    public void setVacunas(List<String> vacunas) {
+    public void setVacunas(ArrayList<String> vacunas) {
         this.vacunas = vacunas;
     }
 
-    public List<String> getEnfermedades() {
+    public ArrayList<String> getEnfermedades() {
         return enfermedades;
     }
 
-    public void setEnfermedades(List<String> enfermedades) {
+    public void setEnfermedades(ArrayList<String> enfermedades) {
         this.enfermedades = enfermedades;
     }
 
-    public List<Medicamento> getMedicamentos() {
+    public ArrayList<Medicamento> getMedicamentos() {
         return medicamentos;
     }
 
-    public void setMedicamentos(List<Medicamento> medicamentos) {
+    public void setMedicamentos(ArrayList<Medicamento> medicamentos) {
         this.medicamentos = medicamentos;
     }
 
-    public List<String> getAlergias() {
+    public ArrayList<String> getAlergias() {
         return alergias;
     }
 
-    public void setAlergias(List<String> alergias) {
+    public void setAlergias(ArrayList<String> alergias) {
         this.alergias = alergias;
     }
 
@@ -76,6 +76,8 @@ public class PerfilMedico {
     public void setSeguro(SeguroMedico seguro) {
         this.seguro = seguro;
     }
+
+    
 
     public void comprobarIncompatibilidades() {
         boolean hayIncompatibilidades = false;
@@ -93,4 +95,14 @@ public class PerfilMedico {
             System.out.println("No se encontraron incompatibilidades.");
         }
     }
+
+
+    public ArrayList<String> getRestricciones() {
+        return restricciones;
+    }
+
+    public void setRestricciones(ArrayList<String> restricciones) {
+        this.restricciones = restricciones;
+    }
+
 }

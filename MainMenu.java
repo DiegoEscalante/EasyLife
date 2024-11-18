@@ -1,82 +1,14 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {     private static ArrayList<Tarea> tareas = new ArrayList<>();
+public class MainMenu {
+    private static ArrayList<Tarea> tareas = new ArrayList<>();
     private static ArrayList<CitaMedica> citasMedicas = new ArrayList<>();
     private static ArrayList<Evento> eventos = new ArrayList<>();
     private static ArrayList<Medicamento> medicamentos = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Evento> eventos = new ArrayList<>();
-        ArrayList<Materia> materias = new ArrayList<>();
-        ArrayList<Medicamento> medicamentos = new ArrayList<>();
-
-        Usuario usuario = null;
-
-        //EventoRepository eventoRepo = new EventoRepository();
-        MedicamentoRepository medicamentoRepo = new MedicamentoRepository();
-        Evento fechaCaducidad = new Evento(1, "Fecha de Caducidad", "2025-12-31", "23:59");
-        //eventoRepo.insertDataEntity(fechaCaducidad);
-        //System.out.println("Evento de fecha de caducidad insertado.");
-        Medicamento medicamento = new Medicamento(2, "acintomedicamentoi", 700, 3000, 17, fechaCaducidad, 654123);
-        medicamentoRepo.insertDataEntity(medicamento);
-        //System.out.println("Medicamento insertado.");
-
-        EventoRepository eventoRepo = new EventoRepository();
-        //MedicamentoRepository medicamentoRepo = new MedicamentoRepository();
-        SeguroMedicoRepository seguroMedicoRepo = new SeguroMedicoRepository();
-        PerfilMedicoRepository perfilMedicoRepo = new PerfilMedicoRepository();
-        ArrayList<String> discapacidades = new ArrayList<>();
-        discapacidades.add("Visual");
-
-        ArrayList<String> vacunas = new ArrayList<>();
-        vacunas.add("Covid-19");
-
-        ArrayList<String> enfermedades = new ArrayList<>();
-        enfermedades.add("Asma");
-
-        //ArrayList<Medicamento> medicamentos = new ArrayList<>();
-
-        ArrayList<Medicamento> lista_Medicamentos = medicamentoRepo.getDataList();
-
-
-        medicamentos.add(lista_Medicamentos.get(0));
-        medicamentos.add(lista_Medicamentos.get(1));
-
-        ArrayList<String> alergias = new ArrayList<>();
-        alergias.add("Polen");
-
-        ArrayList<String> restricciones = new ArrayList<>();
-        restricciones.add("Paracetamol");
-
-        SeguroMedico seguro = seguroMedicoRepo.findEntityById(1);
-
-        PerfilMedico perfil = new PerfilMedico(1, discapacidades, vacunas, enfermedades, medicamentos, alergias, restricciones, seguro);
-        perfilMedicoRepo.insertDataEntity(perfil);
-
-        ArrayList<PerfilMedico> listaPerfiles = perfilMedicoRepo.getDataList();
-        if (listaPerfiles != null && !listaPerfiles.isEmpty()) {
-            System.out.println("Lista de Perfiles Médicos:");
-            for (PerfilMedico perfilMedico : listaPerfiles) {
-                System.out.println("ID: " + perfilMedico.getId());
-                System.out.println("Discapacidades: " + perfilMedico.getDiscapacidades());
-                System.out.println("Vacunas: " + perfilMedico.getVacunas());
-                System.out.println("Enfermedades: " + perfilMedico.getEnfermedades());
-
-                System.out.print("Medicamentos: ");
-                for (Medicamento med : perfilMedico.getMedicamentos()) {
-                    System.out.print(med.getNombre() + " ");
-                }
-                System.out.println();
-
-                System.out.println("Alergias: " + perfilMedico.getAlergias());
-                System.out.println("Restricciones: " + perfilMedico.getRestricciones());
-                System.out.println("Seguro Médico: " + (perfilMedico.getSeguro() != null ? perfilMedico.getSeguro().getProveedor() : "N/A"));
-                System.out.println("-----------------------------");
-            }
-        }
         int opcion;
 
         do {
@@ -106,7 +38,7 @@ public class Main {     private static ArrayList<Tarea> tareas = new ArrayList<>
 
     //Gestion de Tareas
     private static void gestionarTareas() {
-        gestionarLista("Tareas", tareas, Main::crearTarea);
+        gestionarLista("Tareas", tareas, MainMenu::crearTarea);
     }
 
     private static Tarea crearTarea() {
@@ -135,7 +67,7 @@ public class Main {     private static ArrayList<Tarea> tareas = new ArrayList<>
 
     //Gestion de Citas Medicas 
     private static void gestionarCitasMedicas() {
-        gestionarLista("Citas Medicas", citasMedicas, Main::crearCitaMedica);
+        gestionarLista("Citas Medicas", citasMedicas, MainMenu::crearCitaMedica);
     }
 
     private static CitaMedica crearCitaMedica() {
@@ -169,7 +101,7 @@ public class Main {     private static ArrayList<Tarea> tareas = new ArrayList<>
 
     //Gestion de Eventos
     private static void gestionarEventos() {
-        gestionarLista("Eventos", eventos, Main::crearEvento);
+        gestionarLista("Eventos", eventos, MainMenu::crearEvento);
     }
 
     private static Evento crearEvento() {
@@ -191,7 +123,7 @@ public class Main {     private static ArrayList<Tarea> tareas = new ArrayList<>
 
     // Gestion de Medicamentos 
     private static void gestionarMedicamentos() {
-        gestionarLista("Medicamentos", medicamentos, Main::crearMedicamento);
+        gestionarLista("Medicamentos", medicamentos, MainMenu::crearMedicamento);
     }
 
     private static Medicamento crearMedicamento() {

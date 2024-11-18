@@ -1,15 +1,14 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Materia {
     private int id;
-    private List<Float> porcentajeCortes;
+    private ArrayList<Float> porcentajeCortes;
     private float porcentajeTI;
     private float porcentajeQuiz;
     private float porcentajeParcial;
-    private List<Tarea> tareas;
+    private ArrayList<Tarea> tareas;
 
-    public Materia(int id, List<Float> porcentajeCortes, float porcentajeTI, float porcentajeQuiz, float porcentajeParcial) {
+    public Materia(int id, ArrayList<Float> porcentajeCortes, float porcentajeTI, float porcentajeQuiz, float porcentajeParcial, ArrayList<Tarea> tareas) {
         this.id = id;
         this.porcentajeCortes = porcentajeCortes;
         this.porcentajeTI = porcentajeTI;
@@ -17,6 +16,12 @@ public class Materia {
         this.porcentajeParcial = porcentajeParcial;
         this.tareas = new ArrayList<>();
     }
+
+    public Materia() {
+    }
+
+
+    
 
     public int getId() {
         return id;
@@ -48,7 +53,7 @@ public class Materia {
 
     public float calcularNotaCortes() {
         float notaCortesTotal = 0;
-        for (Float porcentajeCorte : porcentajeCortes) {
+        for (float porcentajeCorte : porcentajeCortes) {
             notaCortesTotal += porcentajeCorte;
         }
         return notaCortesTotal;
@@ -65,5 +70,85 @@ public class Materia {
             System.out.println("Debes esforzarte mas Considera repasar el contenido y mejorar en proximas evaluaciones");
         }
     }
+
+
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return ArrayList<float> return the porcentajeCortes
+     */
+    public ArrayList<Float> getPorcentajeCortes() {
+        return porcentajeCortes;
+    }
+
+    /**
+     * @param porcentajeCortes the porcentajeCortes to set
+     */
+    public void setPorcentajeCortes(ArrayList<Float> porcentajeCortes) {
+        this.porcentajeCortes = porcentajeCortes;
+    }
+
+    /**
+     * @return float return the porcentajeTI
+     */
+    public float getPorcentajeTI() {
+        return porcentajeTI;
+    }
+
+    /**
+     * @param porcentajeTI the porcentajeTI to set
+     */
+    public void setPorcentajeTI(float porcentajeTI) {
+        this.porcentajeTI = porcentajeTI;
+    }
+
+    /**
+     * @return float return the porcentajeQuiz
+     */
+    public float getPorcentajeQuiz() {
+        return porcentajeQuiz;
+    }
+
+    /**
+     * @param porcentajeQuiz the porcentajeQuiz to set
+     */
+    public void setPorcentajeQuiz(float porcentajeQuiz) {
+        this.porcentajeQuiz = porcentajeQuiz;
+    }
+
+    /**
+     * @return float return the porcentajeParcial
+     */
+    public float getPorcentajeParcial() {
+        return porcentajeParcial;
+    }
+
+    /**
+     * @param porcentajeParcial the porcentajeParcial to set
+     */
+    public void setPorcentajeParcial(float porcentajeParcial) {
+        this.porcentajeParcial = porcentajeParcial;
+    }
+
+    /**
+     * @return ArrayList<Tarea> return the tareas
+     */
+    public ArrayList<Tarea> getTareas() {
+        return tareas;
+    }
+
+    /**
+     * @param tareas the tareas to set
+     */
+    public void setTareas(ArrayList<Tarea> tareas) {
+        this.tareas = tareas;
+    }
+
 }
 
