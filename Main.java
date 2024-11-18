@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {     private static ArrayList<Tarea> tareas = new ArrayList<>();
+public class Main {     
+    private static ArrayList<Tarea> tareas = new ArrayList<>();
     private static ArrayList<CitaMedica> citasMedicas = new ArrayList<>();
     private static ArrayList<Evento> eventos = new ArrayList<>();
     private static ArrayList<Medicamento> medicamentos = new ArrayList<>();
@@ -9,52 +10,66 @@ public class Main {     private static ArrayList<Tarea> tareas = new ArrayList<>
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Evento> eventos = new ArrayList<>();
-        ArrayList<Materia> materias = new ArrayList<>();
-        ArrayList<Medicamento> medicamentos = new ArrayList<>();
-
-        Usuario usuario = null;
-
-        //EventoRepository eventoRepo = new EventoRepository();
-        MedicamentoRepository medicamentoRepo = new MedicamentoRepository();
-        Evento fechaCaducidad = new Evento(1, "Fecha de Caducidad", "2025-12-31", "23:59");
-        //eventoRepo.insertDataEntity(fechaCaducidad);
-        //System.out.println("Evento de fecha de caducidad insertado.");
-        Medicamento medicamento = new Medicamento(2, "acintomedicamentoi", 700, 3000, 17, fechaCaducidad, 654123);
-        medicamentoRepo.insertDataEntity(medicamento);
-        //System.out.println("Medicamento insertado.");
 
         EventoRepository eventoRepo = new EventoRepository();
-        //MedicamentoRepository medicamentoRepo = new MedicamentoRepository();
+        MedicamentoRepository medicamentoRepo = new MedicamentoRepository();
         SeguroMedicoRepository seguroMedicoRepo = new SeguroMedicoRepository();
         PerfilMedicoRepository perfilMedicoRepo = new PerfilMedicoRepository();
+        MedicoRepository medicoRepository = new MedicoRepository();
+        DireccionRepository direccionRepository = new DireccionRepository();
+        CitaMedicaRepository citaMedicaRepository = new CitaMedicaRepository();
+        MateriaRepository materiaRepository = new MateriaRepository();
+
+        //Evento fechaCaducidad = new Evento(1, "Fecha de Caducidad", "2025-12-31", "23:59");
+        //Medicamento medicamento = new Medicamento(2, "paracetamol", 100, 200, 2, fechaCaducidad, 654123);
+        //medicamentoRepo.insertDataEntity(medicamento);
+        //eventoRepo.insertDataEntity(fechaCaducidad);
+        seguroMedicoRepo.insertDataEntity(new SeguroMedico(1, "Proovedor1", "cobertura1"));
+
+
+        //ArrayList<Evento> lista_eventos = eventoRepo.getDataList();
+        //ArrayList<Materia> lista_materias = materiaRepository.getDataList();
+        //ArrayList<Medicamento> lista_medicamentos = medicamentoRepo.getDataList();
+        //ArrayList<Medico> lista_medicos = medicoRepository.getDataList();
+        //ArrayList<Direccion> lista_direcciones = direccionRepository.getDataList();
+        //ArrayList<CitaMedica> lista_CitaMedicas = citaMedicaRepository.getDataList();
+        //ArrayList<PerfilMedico> lista_PerfilesMedicos = perfilMedicoRepo.getDataList();
+        //ArrayList<SeguroMedico> lista_SegurosMedicos = seguroMedicoRepo.getDataList();
+        
+
+        
         ArrayList<String> discapacidades = new ArrayList<>();
         discapacidades.add("Visual");
-
         ArrayList<String> vacunas = new ArrayList<>();
         vacunas.add("Covid-19");
-
         ArrayList<String> enfermedades = new ArrayList<>();
         enfermedades.add("Asma");
+        ArrayList<String> alergias = new ArrayList<>();
+        alergias.add("Polen");
+        ArrayList<String> restricciones = new ArrayList<>();
+        restricciones.add("Paracetamol");
 
-        //ArrayList<Medicamento> medicamentos = new ArrayList<>();
 
         ArrayList<Medicamento> lista_Medicamentos = medicamentoRepo.getDataList();
-
 
         medicamentos.add(lista_Medicamentos.get(0));
         medicamentos.add(lista_Medicamentos.get(1));
 
-        ArrayList<String> alergias = new ArrayList<>();
-        alergias.add("Polen");
 
-        ArrayList<String> restricciones = new ArrayList<>();
-        restricciones.add("Paracetamol");
+        //SeguroMedico seguro = seguroMedicoRepo.findEntityById(1);
 
-        SeguroMedico seguro = seguroMedicoRepo.findEntityById(1);
+        //PerfilMedico perfil = new PerfilMedico(1, discapacidades, vacunas, enfermedades, medicamentos, alergias, restricciones, seguro);
+        //perfilMedicoRepo.insertDataEntity(perfil);
 
-        PerfilMedico perfil = new PerfilMedico(1, discapacidades, vacunas, enfermedades, medicamentos, alergias, restricciones, seguro);
-        perfilMedicoRepo.insertDataEntity(perfil);
+        //eventoRepo.insertDataEntity(fechaCaducidad);
+        //ArrayList<Medicamento> medicamentos = new ArrayList<>();
+
+
+
+
+
+
+
 
         ArrayList<PerfilMedico> listaPerfiles = perfilMedicoRepo.getDataList();
         if (listaPerfiles != null && !listaPerfiles.isEmpty()) {
@@ -77,8 +92,9 @@ public class Main {     private static ArrayList<Tarea> tareas = new ArrayList<>
                 System.out.println("-----------------------------");
             }
         }
-        int opcion;
 
+
+        int opcion;
         do {
             mostrarMenuPrincipal();
             opcion = scanner.nextInt();
@@ -289,8 +305,6 @@ public class Main {     private static ArrayList<Tarea> tareas = new ArrayList<>
         }
     }
 
-    
-    
     interface CrearElemento<T> {
         T crear();
     }
