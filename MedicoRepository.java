@@ -48,9 +48,9 @@ public class MedicoRepository extends Repository<Medico> {
         return medico.getId() + this.delimiter +
                medico.getNombre() + this.delimiter +
                medico.getApellido() + this.delimiter +
-               medico.getEdad() + this.delimiter +
+               //medico.getEdad() + this.delimiter +
                medico.getSexo() + this.delimiter +
-               medico.getDireccion() + this.delimiter +
+               //medico.getDireccion() + this.delimiter +
                medico.getEspecialidad();
     }
 
